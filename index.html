@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172835969-1"></script>
+    <!-- 1. Add these to your <head> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- 2. Add this style (or put it in your CSS file) -->
+    <style>
+        #maps {
+            height: 500px;
+            width: 100%;
+            border-radius: 1rem;
+            z-index: 0;
+        }
+    </style>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172835969-1');
+    </script>
+    <title>Marinkart - British Admiralty Charts &amp; Publications</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#144bb8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2533",
+                        "accent-blue": "#0a2e7a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            width: 100% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-include="./components/header.html"></div>
+
+    <!-- Hero Section -->
+    <section class="relative h-[600px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-background-dark/90 via-background-dark/60 to-transparent z-10">
+            </div>
+            <img class="w-full h-full object-cover brightness-50 blur-sm"
+                data-alt="Professional cargo ship sailing through Mediterranean waters with navigational equipment"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsVmQmc_8mLqKGG8eseUYAx77RgJFphW6kIpSQktD52aUc3SRtcOl_vOddwnNP_4EmVC1kfSr4y0uyvKyfdX1tQB6pBS3aporT5FeBLlzoWnqi_t9CsQpzjawSQo8yCwMG9UuyAuN9MR-t9nAMUYz_igJMMKhXolnO-d351lverWcZJQ9RV5Lx4qETL5qin6EsDkgCOqcB4YqZX8IVE6CRYL-tv8OlRlqpH6aDLady8QATEu5qHdxDnMXUfKAKUJmtEbJVAL3GIV1y" />
+        </div>
+        <div class="relative z-20 px-6 md:px-20 mx-auto">
+            <div>
+                <span
+                    class=" inline-block py-1 px-3 rounded-full bg-yellow-400/70 text-white text-xs font-bold uppercase tracking-wider mb-4 border border-primary/30">
+                    Since 1978 in Egypt
+                </span>
+                <h1 class="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
+                    British Admiralty <br /><span class="text-primary">Charts &amp; Publications</span>
+                </h1>
+                <p class="text-lg text-slate-200 mb-8 max-w-xl">
+                    Authorized British Admiralty Agent serving Alexandria, Port Said, and Suez. Providing precision
+                    maritime data and navigational solutions for over 45 years.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="navigateTo('/products_new.html')"
+                        class="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-accent-blue transition-all">
+                        View Products
+                    </button>
+                    <button onclick="navigateTo('/services_new.html')"
+                        class="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold rounded-lg hover:bg-white/20 transition-all">
+                        Our Services
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Quick Stats -->
+    <div class="px-6 md:px-20 -mt-16 relative z-30">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+                class="bg-surface-light dark:bg-surface-dark p-8 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 flex items-center gap-6">
+                <div class="bg-primary/10 p-4 rounded-full text-primary">
+                    <span class="material-symbols-outlined text-3xl">verified</span>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-primary">45+</h3>
+                    <p class="text-slate-500 dark:text-slate-400 font-medium">Years Experience</p>
+                </div>
+            </div>
+            <div
+                class="bg-surface-light dark:bg-surface-dark p-8 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 flex items-center gap-6">
+                <div class="bg-primary/10 p-4 rounded-full text-primary">
+                    <span class="material-symbols-outlined text-3xl">location_on</span>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-primary">3</h3>
+                    <p class="text-slate-500 dark:text-slate-400 font-medium">Strategic Offices</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Map & Locations Section -->
+    <section class="py-24 bg-slate-100 dark:bg-slate-900/50" id="locations">
+        <div class="px-6 md:px-20">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="flex-1 space-y-8">
+                    <div>
+                        <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Network Coverage</h2>
+                        <h3 class="text-4xl font-black text-slate-900 dark:text-white mb-6">Strategic Egyptian Presence
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400">Our offices are strategically located at the
+                            gateways of the Suez Canal and major Mediterranean ports to provide immediate support to
+                            your fleet.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <button onclick="navigateToLocation('alexandria')"
+                            class="group flex items-start gap-4 p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 w-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/30 active:scale-[0.98]">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <div class="text-left">
+                                <h4 class="font-bold">Alexandria</h4>
+                                <p class="text-sm text-slate-500">Main Office - Serving the Western Mediterranean</p>
+                            </div>
+                        </button>
+                        <button onclick="navigateToLocation('Port Said')"
+                            class="group flex items-start gap-4 p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 w-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/30 active:scale-[0.98]">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <div class="text-left">
+                                <h4 class="font-bold">Port Said</h4>
+                                <p class="text-sm text-slate-500">Suez Canal North Entrance Gateway</p>
+                            </div>
+                        </button>
+                        <button onclick="navigateToLocation('suez')"
+                            class="group flex items-start gap-4 p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 w-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/30 active:scale-[0.98]">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <div class="text-left">
+                                <h4 class="font-bold">Suez</h4>
+                                <p class="text-sm text-slate-500">Red Sea Gateway Office</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="flex-1 w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 relative">
+                    <div id="maps" class="w-full h-full"></div>
+                    <div class="absolute inset-0 bg-primary/10 pointer-events-none z-[400]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest News -->
+    <section class="py-24" id="news">
+        <div class="px-6 md:px-20">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Stay Updated</h2>
+                    <h3 class="text-4xl font-black text-slate-900 dark:text-white">Latest Maritime News</h3>
+                </div>
+                <!-- <button class="text-primary font-bold hover:underline flex items-center gap-2">
+                    View All News <span class="material-symbols-outlined">arrow_forward</span>
+                </button> -->
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="group cursor-pointer">
+                    <div class="aspect-video rounded-xl overflow-hidden mb-6">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Close up of a nautical chart and navigation tools"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCvYC5KMN9ctnKx4SDnlRcs0Bn20DaYqNJn7qt_nC8lmW-tAlXBnkeyiZ2oQT3Bf2EexjzH5OAmVMf8HssMfabm2uSzc5htL6vwNPLh7D95il7ibJ-19vBFp45DME9Ut68DEtNWyZ2pASp22O2Yz2OpWJJz5_IGLoUJyKu2Yp2ls1WS5S76PDor9dsIqUt2_xM7aABKsT_wZXjF8ZKvH6wY1YNfUq4aGIAJcq2AEt60Oc99rICV6-QeNNCGuRWtVaNqfkrB7SyYSY_" />
+                    </div>
+                    <p class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Product Update</p>
+                    <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">New Admiralty Digital
+                        Publications Released</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">Update your digital inventory with the latest
+                        nautical publications for 2024 compliance.</p>
+                </article>
+                <article class="group cursor-pointer">
+                    <div class="aspect-video rounded-xl overflow-hidden mb-6">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Ship navigating through a narrow canal"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN0SXAllnKLiDD8nOz1fJMXwSpDiTE3Ci0dmlXyb13S7HYFmIfsAm_wq_OZ6pI_rYoAYsHUcSXdljEPfDqigwR5p_ISsbic9eipkyYIINM1gyxLIm6f3zh4yo7ZpgY08tpMs5UexCCSMDYNRVs4F8rWnuJGTXW6W5jRsuhBBG96V9H1BzP7JTGqVlDmNhjhFLRkZn18-2h_Vou46yRNxJxAQV1g20v5mi9ue1NzYqjONf3hBf9tpq7YMAAFLH5gS3E58_ayBUWN8kC" />
+                    </div>
+                    <p class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Safety Notice</p>
+                    <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Suez Canal
+                        Navigational Updates Weekly 42</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">Essential safety notices for vessels
+                        transiting the Suez Canal this week.</p>
+                </article>
+                <article class="group cursor-pointer">
+                    <div class="aspect-video rounded-xl overflow-hidden mb-6">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Nautical instruments on a wooden table"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyh4fn31vFO-bnB-_RT2t_cyxsLyX9_FwbzuWloEk3_eLATNp_rEDPL29sWFiFeacDud-8a3Z3qGmumqOgBgAjUSwrlxWSJgwl-4FJIhnYtFIzlXkKHqEyrZbUz7yrE9Kbofp0ekHFFdD1o-eAdOly_cuwxJIh6mJcdQMY3e5Ox94KiiNlJelFYc1i1sf-2tfEa4n77kTLy-Y6zdMR_9T5ho9Dj26mSoyfoGzzTsBxcLBtLiZwesUVxmd7EClYIZWYA9toJUDV6qUC" />
+                    </div>
+                    <p class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Company News</p>
+                    <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Marinkart Celebrates
+                        45 Years in Egypt</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">Reflecting on our journey as the leading
+                        Admiralty Agent in the region since 1978.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <div data-include="./components/ready_to_order.html"></div>
+    <div data-include="./components/footer.html"></div>
+    <script src="./scripts/global-vars.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/include.js"></script>
+    <script src="./scripts/mobile-menu.js"></script>
+    <script src="./scripts/load-map.js"></script>
+</body>
+
+</html>

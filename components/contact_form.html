@@ -1,0 +1,43 @@
+<h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+    <span class="material-symbols-outlined text-primary">mail</span>
+    General Inquiries
+</h3>
+<form id="inquiryForm" onsubmit="handleSubmit(event)"
+    
+    class="space-y-6 bg-white dark:bg-slate-900/50 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex flex-col gap-2">
+            <label class="text-sm font-semibold">Full Name</label>
+            <input name="fullname"
+                class="rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary"
+                placeholder="John Doe" type="text" />
+        </div>
+        <div class="flex flex-col gap-2">
+            <label class="text-sm font-semibold">Email Address</label>
+            <input name="email"
+                class="rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary"
+                placeholder="john@company.com" type="email" />
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold">Inquiry Type</label>
+        <select name="type"
+            class="rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary">
+            <option>General Information</option>
+            <option>Admiralty Agency Services</option>
+            <option>Logistics &amp; Supply</option>
+            <option>Technical Support</option>
+        </select>
+    </div>
+    <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold">Message</label>
+        <textarea name="message"
+            class="rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary"
+            placeholder="How can we help you?" rows="4"></textarea>
+    </div>
+    <button
+        class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+        type="submit">
+        Send Message
+    </button>
+</form>

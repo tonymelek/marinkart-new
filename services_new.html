@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172835969-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172835969-1');
+    </script>
+    <title>Marinkart - British Admiralty Charts &amp; Publications</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#144bb8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2533",
+                        "accent-blue": "#0a2e7a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- Header -->
+        <div data-include="./components/header.html"></div>
+        <main class="flex-1">
+            <!-- Services Grid -->
+            <section class="px-6 md:px-20 py-16">
+                <div class="grid grid-cols-1 gap-12">
+                    <!-- Service 1: Chart Correction Courses -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center gap-10 bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 lg:max-h-[500px]">
+                        <div class="w-full lg:w-1/2 aspect-video lg:aspect-square bg-cover bg-center"
+                            data-alt="Maritime officer studying a paper nautical chart"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNjkFyt7h1gCv-t87KPclP6AvVOG5zDfFrf6pam4CbdbYk66KPUkzUbo0O42VQne-EFoKZulRQ_uIixvgSsdTfkOor0GxcW-riqkuUzHPWefiGwEZFC7RjFLMwYDyZvsdJDdahxmw3hBqkRaYjWvKPnRQSBlHTXNG5ozNKy2WArVC5A1ro-Fnu-woeHcnl_6EcsJJCq_Bi50OewjHW23XScQiXWhHqD2HUmCL8ct0-vMKMcjXeV0oH8Zh92k0eYlzB7hsQOPBTwFAH');">
+                        </div>
+                        <div class="w-full lg:w-1/2 p-8 lg:p-12">
+                            <div class="flex items-center gap-2 mb-4 text-primary">
+                                <span class="material-symbols-outlined">school</span>
+                                <span class="font-bold uppercase tracking-tighter text-sm">Training Excellence</span>
+                            </div>
+                            <h2 class="text-slate-900 dark:text-white text-3xl font-bold mb-4">Chart Correction Courses
+                            </h2>
+                            <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Held in our Alexandria
+                                facilities, these intensive courses are designed for Merchant Officers looking to master
+                                the precision required for maritime safety.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary mt-1">event_available</span>
+                                    <div>
+                                        <p class="font-bold text-slate-800 dark:text-slate-200">Duration</p>
+                                        <p class="text-sm text-slate-500">5 Days (Mon-Thu)</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary mt-1">schedule</span>
+                                    <div>
+                                        <p class="font-bold text-slate-800 dark:text-slate-200">Timing</p>
+                                        <p class="text-sm text-slate-500">2:00 pm - 6:00 pm</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-4">
+                                <button
+                                    onclick="navigateTo('/chart_correction_course.html')"
+                                    class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">Book
+                                    a Course</button>
+                                <button
+                                    class="border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-8 py-3 rounded-lg font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">View
+                                    Curriculum</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Service 2: Updates & Reports -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center gap-10 bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 lg:max-h-[500px]">
+                        <div class="w-full lg:w-1/2 aspect-video lg:aspect-square bg-cover bg-center"
+                            data-alt="Close up of professional nautical publications and folders"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgX78TMbCW3o1YyWZGa_v2xNjYDv1ZmPrAY4OjbBHN3hi6Mjj54_9WtdBIZPInGNzPU_DLIQqQGmuNbiXisG3RYawXqBYn7blw6YUq0SksIaWVEMuoIjliVdTMXOEu9xO7n-DOD-7M0ls3WzPwNlUbOnNI8WZKRu7Aei7C8f4irsdJP2CojiqtztZP11YW6UE2qv0ybOzTonq4b94xFt2MZgUBUUmPgEMUYoV9qVoJUiXXOA8DkG5WbqVd4MCrnqTXsMMzt3cOVgyW');">
+                        </div>
+                        <div class="w-full lg:w-1/2 p-8 lg:p-12">
+                            <div class="flex items-center gap-2 mb-4 text-primary">
+                                <span class="material-symbols-outlined">update</span>
+                                <span class="font-bold uppercase tracking-tighter text-sm">Regulatory Compliance</span>
+                            </div>
+                            <h2 class="text-slate-900 dark:text-white text-3xl font-bold mb-4">Charts &amp; Publications
+                                Updates</h2>
+                            <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Stay compliant with
+                                international maritime regulations. We provide comprehensive status reports and checking
+                                services for your vessel's entire inventory.</p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-green-500">check_circle</span>
+                                    Inventory status verification
+                                </li>
+                                <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-green-500">check_circle</span>
+                                    Latest change notifications
+                                </li>
+                                <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-green-500">check_circle</span>
+                                    New edition alerts
+                                </li>
+                            </ul>
+                            <button
+                                onclick="navigateTo('/contact_us.html')"
+                                class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors w-full sm:w-auto">Inquire
+                                Now</button>
+                        </div>
+                    </div>
+                    <!-- Service 3: Logistics -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center gap-10 bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 lg:max-h-[500px]">
+                        <div class="w-full lg:w-1/2 aspect-video lg:aspect-square bg-cover bg-center"
+                            data-alt="Global shipping container port at dusk"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWHzMbC0uIecMLEV97Y9J_uF-5tulzVGw21TUY1YWGet-_PECtuy064k-hrV8zz3Q__x6QNGa8NbBaaQ9hXxuKTZpYFOlJ50Pg9_LrQV1CJDtq93oVCVYsR-Ejj_cjVjPUTkzEYmt_HqR4b-0AptwMkjvqKuyM85fQRC5AAKIpyuZEDBVZjHjE7dRqExYd-Ni6zDMly8LOVT4UFRSyXticheAz3vwRq4RHlUnD_mpthfEO-zrJbCLSoC4plpQNw2yKhK20HCoBGgj5');">
+                        </div>
+                        <div class="w-full lg:w-1/2 p-8 lg:p-12">
+                            <div class="flex items-center gap-2 mb-4 text-primary">
+                                <span class="material-symbols-outlined">local_shipping</span>
+                                <span class="font-bold uppercase tracking-tighter text-sm">Global Logistics</span>
+                            </div>
+                            <h2 class="text-slate-900 dark:text-white text-3xl font-bold mb-4">Fast Delivery Services
+                            </h2>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">We understand that time
+                                is critical in maritime operations. Our optimized logistics network ensures your charts
+                                and tools arrive when you need them.</p>
+                            <div
+                                class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 mb-8">
+                                <div
+                                    class="flex justify-between items-center mb-4 pb-4 border-b border-slate-200 dark:border-slate-700">
+                                    <span class="font-semibold text-slate-800 dark:text-slate-200">Local
+                                        Customers</span>
+                                    <span
+                                        class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">Overnight
+                                        Courier</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold text-slate-800 dark:text-slate-200">International</span>
+                                    <span
+                                        class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">2-3
+                                        Business Days</span>
+                                </div>
+                            </div>
+                            <button onclick="navigateTo(window.globalVars.whatsAppLink)"
+                                class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                                Order Materials
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- CTA Section -->
+            <div data-include="./components/ready_to_order.html"></div>
+        </main>
+        <!-- Footer -->
+        <div data-include="./components/footer.html"></div>
+        <script src="./scripts/global-vars.js"></script>
+        <script src="./scripts/include.js"></script>
+        <script src="./scripts/mobile-menu.js"></script>
+        <script src="./scripts/utils.js"></script>
+    </div>
+</body>
+
+</html>

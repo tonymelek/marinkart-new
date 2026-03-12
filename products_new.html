@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172835969-1"></script>
+    <!-- 1. Add these to your <head> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- 2. Add this style (or put it in your CSS file) -->
+    <style>
+        #maps {
+            height: 500px;
+            width: 100%;
+            border-radius: 1rem;
+            z-index: 0;
+        }
+    </style>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172835969-1');
+    </script>
+    <title>Marinkart - British Admiralty Charts &amp; Publications</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#144bb8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2533",
+                        "accent-blue": "#0a2e7a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            width: 100% !important;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light font-display text-marine-dark">
+    <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+        <div data-include="./components/header.html"></div>
+        <main class="flex-1 px-4 md:px-10 lg:px-40 py-10">
+            <div class="mb-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="max-w-2xl">
+           
+                        <h1 class="text-marine-dark text-4xl font-black leading-tight tracking-tight">Our Products &amp;
+                            Charts</h1>
+                        <p class="text-marine-muted text-lg mt-2">Official British Admiralty Agent. Comprehensive
+                            maritime solutions for professional navigation, regulatory compliance, and vessel
+                            operations.</p>
+                    </div>
+              
+                </div>
+  
+            </div>
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="flex-1">
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div
+                            class="group bg-white rounded-xl border border-marine-light overflow-hidden hover:shadow-xl transition-all flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="Official maritime logbooks and national flags on a desk"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILedfDe-nP28qEMGB4RlafgMP1AHc5rkjnBYgNBxisS7vKLhvFeEMkR8hqOJfb9yNlqSrTdwl29nlaY3_Zqqy05wYPQJjdBP8oTRQuCT5XIy-vzTHqaNmAZ7l-4TetT8ZdWYyE7ZJOQ5b8mtUigdR8rtYQ0KNnsTX6VXpxdGgHkeCfzVaWxikI5W1ollummw2Cz8e1oCCNhs62_ip1UCNR4ypvjWtQhhfpwsE1yLl5zW5O-TdBpMnRy-wxltx7fpMjqiCUzcpsQlF" />
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-xl font-bold text-marine-dark mb-2">Marinkart Products</h3>
+                                <p class="text-marine-muted text-sm flex-1">Official vessel logbooks, maritime flags,
+                                    and specialized stationery for professional ship management.</p>
+                          
+                            </div>
+                        </div>
+                        <div
+                            class="group bg-white rounded-xl border border-marine-light overflow-hidden hover:shadow-xl transition-all flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="Nautical binoculars and chart correction tools"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkxt-5GjXpno338U-D6yb9dKEc8fIKxJ5Zoii3FeOxTdlI7ZazsX_FAXDlDPNTQJGUYrf0mBBYA5tq0A0ArTOcKXkckxjhqu8bSfB9zJR5dLAs8CNgXAFu_e6BCVJ0OnjTAL8MPoofsbHrrnBihPYDNOISAhhcRgUd7TQsFZhFVF589QvOnI9TQ6zueFnttMo3SdXFfN_rGN6JSbrUUBN7myARWy0o68mpooeB_X6FGqJheXieZNs_dsSskDGM_nyKX-21WDJ7HrSn" />
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-xl font-bold text-marine-dark mb-2">Navigational Accessories</h3>
+                                <p class="text-marine-muted text-sm flex-1">Precision binoculars, chart correction sets,
+                                    parallel rulers, and high-quality nautical instruments.</p>
+                          
+                            </div>
+                        </div>
+                        <div
+                            class="group bg-white rounded-xl border border-marine-light overflow-hidden hover:shadow-xl transition-all flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="Stack of Admiralty maritime charts and publications"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZLilmsPaxWlZuCx4l3gGyGmfKkaFAlThpWez1XgQiOLQQUdpXcvNePPSOz-iPdZpYI83Kvdvf7K_nH25AkYlCw-x8HO4A-ZUHM-jYFaMIDHJT-r4oAvNtO6X5FNtjno2-Z7a8nuf8jn6WbtboA0zFQ4AekPMov6ylBTTT3vAV4xih8tdzGLeAxdottXu29zH9Gn41AxWkXsWxHz2GS--Gy9Zmh6rWwgP8tpQtUYNP3b4M3L23Ol9s-mp9HnI-814JysKr8c0M3EF" />
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-xl font-bold text-marine-dark mb-2">Admiralty Products</h3>
+                                <p class="text-marine-muted text-sm flex-1">Standard Navigational Charts (SNC) and
+                                    Thematic Nautical Publications for global voyage planning.</p>
+                          
+                            </div>
+                        </div>
+                        <div
+                            class="group bg-white rounded-xl border border-marine-light overflow-hidden hover:shadow-xl transition-all flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="Digital nautical charts on a bridge screen"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGaaOZIi4ax_oD16rXGwxf3iFh4gpPdME64PtVJ6NuwZ05zMk-ojefKF_hFFCq9xGyWQmD3jieDz4vc2SlZTnlcQvz-a2-DamTNRYAtOnYk1LED1U5XWZPdEC51v4M4ahNV7R04Ogco1lTYb7SdzUOZyr8-hu37dt6NGZKEfp_P8hYVX5pi8zpuukbLAAt91C93ydcqboh0fM7Va2Y4vl6WXeWlEXyhE_-TbOxpNfkMIFmufLNmajEOjkf_OyS0mYe0CFdlfFVtjqW" />
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-xl font-bold text-marine-dark mb-2">AVCS</h3>
+                                <p class="text-marine-muted text-sm flex-1">Admiralty Vector Chart Services. The world's
+                                    leading ENC service for safe digital navigation and ECDIS compliance.</p>
+                          
+                            </div>
+                        </div>
+                        <div
+                            class="group bg-white rounded-xl border border-marine-light overflow-hidden hover:shadow-xl transition-all flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="IMO and ITU regulatory maritime publications"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5lpK6Y8YpXu4usEy_NNNa3b5FlkXxZUZZTOkfmJ0hSDeHmDQ7Buf66705f-N3Zo4HSjNpcdbbJX05rCUBdO7bO615Bpx6gEYXE4RaQKylPZylN8VYT1i0tbsOYdFn9zKcNebFA4KQbkDPedppVw3cR5cAVQdO7UOPq2FWJ8VgbL7PWcVePbqHvf-__k6GuPWLwGCVR3YY8ByAyz5MlM91dhCbNBqoQYD6PNClPBD4IOLi3j6eDhWwokOITNzkhA9InCxNK6RphhKh" />
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-xl font-bold text-marine-dark mb-2">Other Products</h3>
+                                <p class="text-marine-muted text-sm flex-1">Global maritime regulatory texts including
+                                    IMO, ITU, ICS/Witherby, and other industry standard publications.</p>
+                          
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div data-include="./components/footer.html"></div>
+        <script src="./scripts/global-vars.js"></script>
+        <script src="./scripts/utils.js"></script>
+        <script src="./scripts/include.js"></script>
+        <script src="./scripts/mobile-menu.js"></script>
+    </div>
+</body>
+
+</html>
