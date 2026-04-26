@@ -106,6 +106,37 @@
                                 Now</button>
                         </div>
                     </div>
+                    <!-- Quick Download Center -->
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+                        <div class="flex items-center gap-2 mb-6 text-primary">
+                            <span class="material-symbols-outlined">download</span>
+                            <span class="font-bold uppercase tracking-tighter text-sm">Quick Download Center</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">Access the latest Admiralty documents and status reports directly.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <a href="#" data-adc-link class="flex items-center gap-3 p-4 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5 transition-all group">
+                                <i class="fas fa-file-archive text-primary text-xl"></i>
+                                <div>
+                                    <p class="font-bold text-slate-800 dark:text-white text-sm group-hover:text-primary">ADC Digital Catalogue</p>
+                                    <p class="text-xs text-slate-500">Week 17, 2026 - ZIP</p>
+                                </div>
+                            </a>
+                            <a href="https://assets.admiralty.co.uk/public/2021-10/Current%20SD%20status.pdf?VersionId=9Qy2xq9GC2kvM0bnljWpJpRv4cblXIZ9" target="_blank" class="flex items-center gap-3 p-4 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5 transition-all group">
+                                <i class="fas fa-file-pdf text-red-500 text-xl"></i>
+                                <div>
+                                    <p class="font-bold text-slate-800 dark:text-white text-sm group-hover:text-primary">Sailing Direction Status</p>
+                                    <p class="text-xs text-slate-500">Current Edition - PDF</p>
+                                </div>
+                            </a>
+                            <a href="https://assets.admiralty.co.uk/public/2022-07/Chart_Availability_List_0.xls?VersionId=v6RtavjWwOXvU8CDxozpg_NJfujCFadD" target="_blank" class="flex items-center gap-3 p-4 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5 transition-all group">
+                                <i class="fas fa-file-excel text-green-600 text-xl"></i>
+                                <div>
+                                    <p class="font-bold text-slate-800 dark:text-white text-sm group-hover:text-primary">Chart Availability List</p>
+                                    <p class="text-xs text-slate-500">Latest Update - XLS</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                     <!-- Service 3: Logistics -->
                     <div
                         class="flex flex-col lg:flex-row items-center gap-10 bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 lg:max-h-[500px]">
@@ -154,10 +185,38 @@
         </main>
         <!-- Footer -->
         <div data-include="./components/footer.html"></div>
-        <script src="./scripts/global-vars.js"></script>
+<script src="./scripts/global-vars.js"></script>
         <script src="./scripts/include.js"></script>
         <script src="./scripts/mobile-menu.js"></script>
         <script src="./scripts/utils.js"></script>
+        <script>
+            function setupAdcLinks() {
+                const { week, year } = window.globalVars.getCurrentWeekYY();
+                const adcLink = window.globalVars.getAdcLink();
+                document.querySelectorAll('[data-adc-link]').forEach(function(el) {
+                    el.href = adcLink;
+                    el.target = '_blank';
+                    const pageLabel = el.querySelector('p');
+                    if (pageLabel) {
+                        pageLabel.textContent = 'ADC Digital Catalogue - Week ' + week + ', 20' + year;
+                    }
+                    const footerLabel = el.querySelector('[data-footer-adc-label] span');
+                    if (footerLabel) {
+                        footerLabel.textContent = 'ADC Catalogue (Week ' + week + ', 20' + year + ')';
+                    }
+                    const btnLabel = el.querySelector('[data-adc-label]');
+                    if (btnLabel) {
+                        btnLabel.textContent = 'Download ADC Catalogue (Week ' + week + ', 20' + year + ')';
+                    }
+                });
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                setupAdcLinks();
+            });
+            document.addEventListener('includesLoaded', function() {
+                setupAdcLinks();
+            });
+        </script>
     </div>
 </body>
 

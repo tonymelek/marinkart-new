@@ -209,8 +209,12 @@
                     <p class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Product Update</p>
                     <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">New Admiralty Digital
                         Publications Released</h4>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm">Update your digital inventory with the latest
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Update your digital inventory with the latest
                         nautical publications for 2024 compliance.</p>
+                    <a href="#" data-adc-link data-adc-label class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                        <i class="fas fa-download"></i>
+                        Download ADC Catalogue
+                    </a>
                 </article>
                 <article class="group cursor-pointer">
                     <div class="aspect-video rounded-xl overflow-hidden mb-6">
@@ -242,10 +246,34 @@
     <!-- CTA Section -->
     <div data-include="./components/ready_to_order.html"></div>
     <div data-include="./components/footer.html"></div>
-    <script src="./scripts/global-vars.js"></script>
-    <script src="./scripts/utils.js"></script>
-    <script src="./scripts/include.js"></script>
-    <script src="./scripts/mobile-menu.js"></script>
+<script src="./scripts/global-vars.js"></script>
+        <script src="./scripts/utils.js"></script>
+        <script src="./scripts/include.js"></script>
+        <script src="./scripts/mobile-menu.js"></script>
+        <script>
+            function setupAdcLinks() {
+                const { week, year } = window.globalVars.getCurrentWeekYY();
+                const adcLink = window.globalVars.getAdcLink();
+                document.querySelectorAll('[data-adc-link]').forEach(function(el) {
+                    el.href = adcLink;
+                    el.target = '_blank';
+                    const pageLabel = el.querySelector('[data-adc-label]');
+                    if (pageLabel) {
+                        pageLabel.textContent = 'Download ADC Catalogue';
+                    }
+                    const footerLabel = el.querySelector('[data-footer-adc-label] span');
+                    if (footerLabel) {
+                        footerLabel.textContent = 'ADC Catalogue (Week ' + week + ', 20' + year + ')';
+                    }
+                });
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                setupAdcLinks();
+            });
+            document.addEventListener('includesLoaded', function() {
+                setupAdcLinks();
+            });
+        </script>
     <script src="./scripts/load-map.js"></script>
 </body>
 

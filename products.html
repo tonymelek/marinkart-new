@@ -129,11 +129,14 @@
                                     data-alt="Stack of Admiralty maritime charts and publications"
                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZLilmsPaxWlZuCx4l3gGyGmfKkaFAlThpWez1XgQiOLQQUdpXcvNePPSOz-iPdZpYI83Kvdvf7K_nH25AkYlCw-x8HO4A-ZUHM-jYFaMIDHJT-r4oAvNtO6X5FNtjno2-Z7a8nuf8jn6WbtboA0zFQ4AekPMov6ylBTTT3vAV4xih8tdzGLeAxdottXu29zH9Gn41AxWkXsWxHz2GS--Gy9Zmh6rWwgP8tpQtUYNP3b4M3L23Ol9s-mp9HnI-814JysKr8c0M3EF" />
                             </div>
-                            <div class="p-6 flex flex-col flex-1">
+<div class="p-6 flex flex-col flex-1">
                                 <h3 class="text-xl font-bold text-marine-dark mb-2">Admiralty Products</h3>
                                 <p class="text-marine-muted text-sm flex-1">Standard Navigational Charts (SNC) and
                                     Thematic Nautical Publications for global voyage planning.</p>
-                          
+                                <a href="#" data-adc-link data-adc-label class="mt-4 inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                                    <i class="fas fa-file-archive"></i>
+                                    <span>Download ADC Catalogue</span>
+                                </a>
                             </div>
                         </div>
                         <div
@@ -174,6 +177,30 @@
         <script src="./scripts/utils.js"></script>
         <script src="./scripts/include.js"></script>
         <script src="./scripts/mobile-menu.js"></script>
+        <script>
+            function setupAdcLinks() {
+                const { week, year } = window.globalVars.getCurrentWeekYY();
+                const adcLink = window.globalVars.getAdcLink();
+                document.querySelectorAll('[data-adc-link]').forEach(function(el) {
+                    el.href = adcLink;
+                    el.target = '_blank';
+                    const btnLabel = el.querySelector('[data-adc-label]');
+                    if (btnLabel) {
+                        btnLabel.textContent = 'Download ADC Catalogue (Week ' + week + ', 20' + year + ')';
+                    }
+                    const footerLabel = el.querySelector('[data-footer-adc-label] span');
+                    if (footerLabel) {
+                        footerLabel.textContent = 'ADC Catalogue (Week ' + week + ', 20' + year + ')';
+                    }
+                });
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                setupAdcLinks();
+            });
+            document.addEventListener('includesLoaded', function() {
+                setupAdcLinks();
+            });
+        </script>
     </div>
 </body>
 

@@ -244,7 +244,24 @@
     <script src="./scripts/mobile-menu.js"></script>
     <script src="./scripts/load-map.js"></script>
     <script>
-
+        function setupAdcLinks() {
+            const { week, year } = window.globalVars.getCurrentWeekYY();
+            const adcLink = window.globalVars.getAdcLink();
+            document.querySelectorAll('[data-adc-link]').forEach(function(el) {
+                el.href = adcLink;
+                el.target = '_blank';
+                const footerLabel = el.querySelector('[data-footer-adc-label] span');
+                if (footerLabel) {
+                    footerLabel.textContent = 'ADC Catalogue (Week ' + week + ', 20' + year + ')';
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            setupAdcLinks();
+        });
+        document.addEventListener('includesLoaded', function() {
+            setupAdcLinks();
+        });
     </script>
 </body>
 
